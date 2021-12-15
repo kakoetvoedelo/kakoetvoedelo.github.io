@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <style>
+        /***** Elements *****/
+        html {
+            font-family: Arial
+        }
+
+        main {
+            width: 100%;
+        }
+
+        header {
+            padding: 0.5rem;
+        }
+
+        content {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            color: white;
+            background-color: black;
+            border: 1px solid grey;
+            border-radius: 4px;
+        }
+
+        a {
+            color: black;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        /***** Classes *****/
+        .section-left {}
+
+        .title {
+            max-width: 15rem;
+            margin-top: 10rem;
+            position: relative;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            margin-top: 3rem;
+            width: 35rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .image-container {
+            margin: 1rem;
+        }
+
+        /***** Identifiers *****/
+        #container {
+            max-width: 35rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <header>
+            <div class="section-left">
+                <a href="https://planeta.ru/campaigns/169608" style="text-decoration: none;"
+                    target="_blank"></a>
+            </div>
+        </header>
+
+        <content>
+            <h1 class="title">Выбери дело на сегодня</h1>
+            <div class="container">
+                <button onclick="reload()">Выбирай</button>
+                <div class="image-container">
+                    <img id="container" />
+                    <br />
+                    <a style="font-size: 1.0 rem;" href="https://planeta.ru/campaigns/169608" target="_blank">
+                        и поддержи проект «Есть дело»
+                    </a>
+                </div>
+            </div>
+        </content>
+
+    </main>
+
+    <script>
+        var arrayImg = new Array();
+        arrayImg[0] = "Screenshot_2.jpg";
+        arrayImg[1] = "Screenshot_3.jpg";
+        arrayImg[2] = "Screenshot_4.jpg";
+        arrayImg[3] = "Screenshot_5.jpg";
+        arrayImg[4] = "Screenshot_6.jpg";
+        arrayImg[5] = "Screenshot_7.jpg";
+        arrayImg[6] = "Screenshot_8.jpg";
+        arrayImg[7] = "Screenshot_9.jpg";
+        arrayImg[8] = "Screenshot_10.jpg";
+        arrayImg[9] = "Screenshot_11.jpg";
+        arrayImg[10] = "Screenshot_12.jpg";
+        arrayImg[11] = "Screenshot_13.jpg";
+        arrayImg[12] = "Screenshot_14.jpg";
+        arrayImg[13] = "Screenshot_15.jpg";
+        arrayImg[14] = "Screenshot_16.jpg";
+        arrayImg[15] = "Screenshot_17.jpg";
+        arrayImg[15] = "Screenshot_18.jpg";
+        arrayImg[16] = "Screenshot_19.jpg";
+        arrayImg[17] = "Screenshot_20.jpg";
+
+        var current = 1;
+        document.addEventListener('DOMContentLoaded', reload);
+
+        function reload() {
+            var imgElem = document.getElementById("container");
+            imgElem.src = getRandomImage(arrayImg, "");
+        }
+
+        function getRandomImage(imgAr, path) {
+            path = path || 'assets/'; // default path here
+            var num = current;
+            while (num === current) {
+                num = Math.floor(Math.random() * imgAr.length);
+            }
+            current = num;
+            var img = imgAr[num];
+            return path + img;
+        }
+    </script>
+</body>
+
+</html>
